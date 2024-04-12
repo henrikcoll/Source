@@ -1,0 +1,25 @@
+load("@aspect_rules_js//js:defs.bzl", "js_binary", "js_image_layer")
+
+js_binary(
+    name = "calculator_web",
+    data = [
+        "//:npm/express",
+        "//nodejs/calculator",
+    ],
+    entry_point = ":index.js",
+)
+
+platform(
+    name = "amd64_linux",
+    constraint_values = [
+        "@platforms//os:linux",
+        "@platforms//cpu:x86_64",
+    ],
+)
+
+js_image_layer(
+    name = "layers",
+    binary = ":calculator_web",
+    platform = ":amd64_linux",
+    root = "/app",
+)
