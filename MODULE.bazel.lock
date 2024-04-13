@@ -1,6 +1,6 @@
 {
   "lockFileVersion": 6,
-  "moduleFileHash": "90fa379440d47a66e72b7d32253ed20c397a530ae53f59a26219e70030e9abf4",
+  "moduleFileHash": "4cc34a68db4de8f8f80d016688f23ebaf7d2628acc45ed7c20d66c6c0a653a98",
   "flags": {
     "cmdRegistries": [
       "https://bcr.bazel.build/"
@@ -57,12 +57,43 @@
           "hasNonDevUseExtension": true
         },
         {
+          "extensionBzlFile": "@rules_nodejs//nodejs:extensions.bzl",
+          "extensionName": "node",
+          "usingModule": "<root>",
+          "location": {
+            "file": "@@//:MODULE.bazel",
+            "line": 20,
+            "column": 21
+          },
+          "imports": {
+            "nodejs_toolchains": "nodejs_toolchains"
+          },
+          "devImports": [],
+          "tags": [
+            {
+              "tagName": "toolchain",
+              "attributeValues": {
+                "name": "nodejs",
+                "node_version": "20.12.1"
+              },
+              "devDependency": false,
+              "location": {
+                "file": "@@//:MODULE.bazel",
+                "line": 22,
+                "column": 15
+              }
+            }
+          ],
+          "hasDevUseExtension": false,
+          "hasNonDevUseExtension": true
+        },
+        {
           "extensionBzlFile": "@aspect_rules_js//npm:extensions.bzl",
           "extensionName": "npm",
           "usingModule": "<root>",
           "location": {
             "file": "@@//:MODULE.bazel",
-            "line": 19,
+            "line": 29,
             "column": 20
           },
           "imports": {
@@ -82,7 +113,7 @@
               "devDependency": true,
               "location": {
                 "file": "@@//:MODULE.bazel",
-                "line": 21,
+                "line": 31,
                 "column": 23
               }
             }
@@ -96,7 +127,7 @@
           "usingModule": "<root>",
           "location": {
             "file": "@@//:MODULE.bazel",
-            "line": 33,
+            "line": 43,
             "column": 21
           },
           "imports": {},
@@ -108,7 +139,7 @@
               "devDependency": false,
               "location": {
                 "file": "@@//:MODULE.bazel",
-                "line": 34,
+                "line": 44,
                 "column": 29
               }
             }
@@ -120,6 +151,7 @@
       "deps": {
         "rules_python": "rules_python@0.31.0",
         "aspect_rules_js": "aspect_rules_js@1.40.1",
+        "rules_nodejs": "rules_nodejs@6.1.0",
         "aspect_rules_jest": "aspect_rules_jest@0.20.0",
         "bazel_tools": "bazel_tools@_",
         "local_config_platform": "local_config_platform@_"
@@ -341,7 +373,7 @@
         "aspect_rules_lint": "aspect_rules_lint@0.12.0",
         "bazel_features": "bazel_features@1.9.0",
         "bazel_skylib": "bazel_skylib@1.5.0",
-        "rules_nodejs": "rules_nodejs@5.8.2",
+        "rules_nodejs": "rules_nodejs@6.1.0",
         "platforms": "platforms@0.0.7",
         "bazel_tools": "bazel_tools@_",
         "local_config_platform": "local_config_platform@_"
@@ -362,6 +394,69 @@
         }
       }
     },
+    "rules_nodejs@6.1.0": {
+      "name": "rules_nodejs",
+      "version": "6.1.0",
+      "key": "rules_nodejs@6.1.0",
+      "repoName": "rules_nodejs",
+      "executionPlatformsToRegister": [],
+      "toolchainsToRegister": [
+        "@nodejs_toolchains//:all"
+      ],
+      "extensionUsages": [
+        {
+          "extensionBzlFile": "@rules_nodejs//nodejs:extensions.bzl",
+          "extensionName": "node",
+          "usingModule": "rules_nodejs@6.1.0",
+          "location": {
+            "file": "https://bcr.bazel.build/modules/rules_nodejs/6.1.0/MODULE.bazel",
+            "line": 12,
+            "column": 21
+          },
+          "imports": {
+            "nodejs_toolchains": "nodejs_toolchains"
+          },
+          "devImports": [],
+          "tags": [
+            {
+              "tagName": "toolchain",
+              "attributeValues": {
+                "name": "nodejs"
+              },
+              "devDependency": false,
+              "location": {
+                "file": "https://bcr.bazel.build/modules/rules_nodejs/6.1.0/MODULE.bazel",
+                "line": 16,
+                "column": 15
+              }
+            }
+          ],
+          "hasDevUseExtension": false,
+          "hasNonDevUseExtension": true
+        }
+      ],
+      "deps": {
+        "bazel_skylib": "bazel_skylib@1.5.0",
+        "platforms": "platforms@0.0.7",
+        "bazel_tools": "bazel_tools@_",
+        "local_config_platform": "local_config_platform@_"
+      },
+      "repoSpec": {
+        "bzlFile": "@@bazel_tools//tools/build_defs/repo:http.bzl",
+        "ruleClassName": "http_archive",
+        "attributes": {
+          "urls": [
+            "https://github.com/bazelbuild/rules_nodejs/releases/download/v6.1.0/rules_nodejs-v6.1.0.tar.gz"
+          ],
+          "integrity": "sha256-3d1grMPy8wNZvvUCydeI9n4zgUsN3ZmqJ8WhXrekG4w=",
+          "strip_prefix": "rules_nodejs-6.1.0",
+          "remote_patches": {
+            "https://bcr.bazel.build/modules/rules_nodejs/6.1.0/patches/module_dot_bazel_version.patch": "sha256-WhHYMvRgKTYwlsjVxukJVQCOHuzyDitKsADaTl/TAac="
+          },
+          "remote_patch_strip": 1
+        }
+      }
+    },
     "aspect_rules_jest@0.20.0": {
       "name": "aspect_rules_jest",
       "version": "0.20.0",
@@ -374,7 +469,7 @@
         "aspect_bazel_lib": "aspect_bazel_lib@1.42.2",
         "aspect_rules_js": "aspect_rules_js@1.40.1",
         "bazel_skylib": "bazel_skylib@1.5.0",
-        "rules_nodejs": "rules_nodejs@5.8.2",
+        "rules_nodejs": "rules_nodejs@6.1.0",
         "bazel_tools": "bazel_tools@_",
         "local_config_platform": "local_config_platform@_"
       },
@@ -945,69 +1040,6 @@
             "https://bcr.bazel.build/modules/aspect_rules_lint/0.12.0/patches/module_dot_bazel_version.patch": "sha256-UalspyPiq7NghK8dC4FsJYIk0q6VE4tep18M0P6mwnw="
           },
           "remote_patch_strip": 1
-        }
-      }
-    },
-    "rules_nodejs@5.8.2": {
-      "name": "rules_nodejs",
-      "version": "5.8.2",
-      "key": "rules_nodejs@5.8.2",
-      "repoName": "rules_nodejs",
-      "executionPlatformsToRegister": [],
-      "toolchainsToRegister": [
-        "@nodejs_toolchains//:all"
-      ],
-      "extensionUsages": [
-        {
-          "extensionBzlFile": "@rules_nodejs//nodejs:extensions.bzl",
-          "extensionName": "node",
-          "usingModule": "rules_nodejs@5.8.2",
-          "location": {
-            "file": "https://bcr.bazel.build/modules/rules_nodejs/5.8.2/MODULE.bazel",
-            "line": 12,
-            "column": 21
-          },
-          "imports": {
-            "nodejs_toolchains": "nodejs_toolchains"
-          },
-          "devImports": [],
-          "tags": [
-            {
-              "tagName": "toolchain",
-              "attributeValues": {
-                "name": "nodejs"
-              },
-              "devDependency": false,
-              "location": {
-                "file": "https://bcr.bazel.build/modules/rules_nodejs/5.8.2/MODULE.bazel",
-                "line": 16,
-                "column": 15
-              }
-            }
-          ],
-          "hasDevUseExtension": false,
-          "hasNonDevUseExtension": true
-        }
-      ],
-      "deps": {
-        "bazel_skylib": "bazel_skylib@1.5.0",
-        "platforms": "platforms@0.0.7",
-        "bazel_tools": "bazel_tools@_",
-        "local_config_platform": "local_config_platform@_"
-      },
-      "repoSpec": {
-        "bzlFile": "@@bazel_tools//tools/build_defs/repo:http.bzl",
-        "ruleClassName": "http_archive",
-        "attributes": {
-          "urls": [
-            "https://github.com/bazelbuild/rules_nodejs/releases/download/5.8.2/rules_nodejs-core-5.8.2.tar.gz"
-          ],
-          "integrity": "sha256-dko7N1e7jDxqArozRHMaPXHlWCIK3LDPfkPJu6LDe6g=",
-          "strip_prefix": "",
-          "remote_patches": {
-            "https://bcr.bazel.build/modules/rules_nodejs/5.8.2/patches/module_dot_bazel.patch": "sha256-5QrAbAO9TVzmRytAov5d4xvl/U3aRQsUpeP/h5SFmu4="
-          },
-          "remote_patch_strip": 0
         }
       }
     },
@@ -38241,7 +38273,7 @@
     },
     "@@rules_nodejs~//nodejs:extensions.bzl%node": {
       "general": {
-        "bzlTransitiveDigest": "1HxpI0AgCvpGfUCJicdseptT6HrlCwj+F0XM5ewp5Ts=",
+        "bzlTransitiveDigest": "xIyDOX55uocuAZcmUQlPZH8TJnZ39RT9+Bi1o3PHghA=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
         "envVariables": {},
@@ -38255,57 +38287,87 @@
           },
           "nodejs_linux_s390x": {
             "bzlFile": "@@rules_nodejs~//nodejs:repositories.bzl",
-            "ruleClassName": "node_repositories",
+            "ruleClassName": "_nodejs_repositories",
             "attributes": {
-              "platform": "linux_s390x",
-              "node_version": "16.19.0"
+              "node_download_auth": {},
+              "node_repositories": {},
+              "node_urls": [
+                "https://nodejs.org/dist/v{version}/{filename}"
+              ],
+              "node_version": "20.12.1",
+              "platform": "linux_s390x"
             }
           },
           "nodejs_windows_amd64": {
             "bzlFile": "@@rules_nodejs~//nodejs:repositories.bzl",
-            "ruleClassName": "node_repositories",
+            "ruleClassName": "_nodejs_repositories",
             "attributes": {
-              "platform": "windows_amd64",
-              "node_version": "16.19.0"
+              "node_download_auth": {},
+              "node_repositories": {},
+              "node_urls": [
+                "https://nodejs.org/dist/v{version}/{filename}"
+              ],
+              "node_version": "20.12.1",
+              "platform": "windows_amd64"
             }
           },
           "nodejs_toolchains": {
-            "bzlFile": "@@rules_nodejs~//nodejs/private:toolchains_repo.bzl",
-            "ruleClassName": "toolchains_repo",
+            "bzlFile": "@@rules_nodejs~//nodejs/private:nodejs_toolchains_repo.bzl",
+            "ruleClassName": "nodejs_toolchains_repo",
             "attributes": {
               "user_node_repository_name": "nodejs"
             }
           },
           "nodejs_linux_amd64": {
             "bzlFile": "@@rules_nodejs~//nodejs:repositories.bzl",
-            "ruleClassName": "node_repositories",
+            "ruleClassName": "_nodejs_repositories",
             "attributes": {
-              "platform": "linux_amd64",
-              "node_version": "16.19.0"
+              "node_download_auth": {},
+              "node_repositories": {},
+              "node_urls": [
+                "https://nodejs.org/dist/v{version}/{filename}"
+              ],
+              "node_version": "20.12.1",
+              "platform": "linux_amd64"
             }
           },
           "nodejs_linux_ppc64le": {
             "bzlFile": "@@rules_nodejs~//nodejs:repositories.bzl",
-            "ruleClassName": "node_repositories",
+            "ruleClassName": "_nodejs_repositories",
             "attributes": {
-              "platform": "linux_ppc64le",
-              "node_version": "16.19.0"
+              "node_download_auth": {},
+              "node_repositories": {},
+              "node_urls": [
+                "https://nodejs.org/dist/v{version}/{filename}"
+              ],
+              "node_version": "20.12.1",
+              "platform": "linux_ppc64le"
             }
           },
           "nodejs_darwin_amd64": {
             "bzlFile": "@@rules_nodejs~//nodejs:repositories.bzl",
-            "ruleClassName": "node_repositories",
+            "ruleClassName": "_nodejs_repositories",
             "attributes": {
-              "platform": "darwin_amd64",
-              "node_version": "16.19.0"
+              "node_download_auth": {},
+              "node_repositories": {},
+              "node_urls": [
+                "https://nodejs.org/dist/v{version}/{filename}"
+              ],
+              "node_version": "20.12.1",
+              "platform": "darwin_amd64"
             }
           },
           "nodejs_linux_arm64": {
             "bzlFile": "@@rules_nodejs~//nodejs:repositories.bzl",
-            "ruleClassName": "node_repositories",
+            "ruleClassName": "_nodejs_repositories",
             "attributes": {
-              "platform": "linux_arm64",
-              "node_version": "16.19.0"
+              "node_download_auth": {},
+              "node_repositories": {},
+              "node_urls": [
+                "https://nodejs.org/dist/v{version}/{filename}"
+              ],
+              "node_version": "20.12.1",
+              "platform": "linux_arm64"
             }
           },
           "nodejs": {
@@ -38317,25 +38379,19 @@
           },
           "nodejs_darwin_arm64": {
             "bzlFile": "@@rules_nodejs~//nodejs:repositories.bzl",
-            "ruleClassName": "node_repositories",
+            "ruleClassName": "_nodejs_repositories",
             "attributes": {
-              "platform": "darwin_arm64",
-              "node_version": "16.19.0"
+              "node_download_auth": {},
+              "node_repositories": {},
+              "node_urls": [
+                "https://nodejs.org/dist/v{version}/{filename}"
+              ],
+              "node_version": "20.12.1",
+              "platform": "darwin_arm64"
             }
           }
         },
-        "recordedRepoMappingEntries": [
-          [
-            "rules_nodejs~",
-            "bazel_skylib",
-            "bazel_skylib~"
-          ],
-          [
-            "rules_nodejs~",
-            "bazel_tools",
-            "bazel_tools"
-          ]
-        ]
+        "recordedRepoMappingEntries": []
       }
     },
     "@@rules_python~//python/extensions:pip.bzl%pip": {

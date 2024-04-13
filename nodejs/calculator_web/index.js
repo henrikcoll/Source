@@ -14,6 +14,7 @@ app.get("/", (_req, res) => {
 });
 
 app.listen(port, () => {
+  console.log(process.versions.node)
   console.log(`listening on port ${port}`);
 });
 
