@@ -1,6 +1,6 @@
 # Python
 
-bazel_dep(name = "rules_python", version = "0.31.0")
+bazel_dep(name = "rules_python", version = "0.32.0")
 
 pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
 
