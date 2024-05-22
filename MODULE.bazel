@@ -38,7 +38,7 @@ use_repo(npm, "npm")
 
 # Jest
 
-bazel_dep(name = "aspect_rules_jest", version = "0.20.0")
+bazel_dep(name = "aspect_rules_jest", version = "0.21.0")
 
 jest = use_extension("@aspect_rules_jest//jest:dependencies.bzl", "rules_jest_dependencies")
 jest.rules_jest_dependencies()
